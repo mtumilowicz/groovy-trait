@@ -1,4 +1,4 @@
-package trait
+package trait.birds
 
 import spock.lang.Specification
 import trait.birds.Cormorant
