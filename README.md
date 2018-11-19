@@ -86,5 +86,12 @@ When coercing an object to a trait, the result of the operation is not the same 
     * if there isn’t any trait left in the chain, super refers to the super class of the implementing class (this)
 * SAM (Single Abstract Method) type coercion for traits with single abstract method (WHAT IF NOT ABSTRACT BUT SINGLE)
 * 
+* fields from traits are shadowed
+```
 
-# differences to java 8 default methods
+```
+
+# differences with Java 8 default methods
+* if a class does not provide the implementation - the implementation from the trait is always used if the class declares the trait in its interface list
+. This feature is in particular useful when you don’t have access to the super class source code.
+*  if you use runtime traits, the methods from the trait are always preferred to those of the proxied object
