@@ -20,19 +20,22 @@ the implements keyword:
 class Penguin implements Swimmer {
 }
 ```
+# details
+## method
 * methods declared in traits could be:
-    * public
+    * public and private methods (neither protected nor package 
+    private scopes are supported)
     * abstract
-    * private
-    * cannot be final
+    * cannot be final (you might consider creating a base 
+    class which implements the desired trait(s) if you want 
+    trait implementation methods that can’t be overridden)
     * it is possible to override them in the implementing class
-    Traits only support public and private methods. 
-    Neither protected nor package private scopes are 
-    supported.
-    
-    If we have a class implementing a trait, conceptually implementations from the trait methods are "inherited" into the class. But, in reality, there is no base class containing such implementations. Rather, they are woven directly into the class.
-    
-    You might consider creating a base class which implements the desired trait(s) if you want trait implementation methods that can’t be overridden.
+
+* if we have a class implementing a trait, implementations 
+are woven directly into the class (there is no base class).
+
+## fields
+
 * `this` represents the implementing instance
 * traits may implement interfaces
 * trait may define properties
