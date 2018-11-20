@@ -239,7 +239,46 @@ object
 
 ## chains of responsibility
 * it is possible to easily compose chains of responsibility 
-with traits (EXAMPLE!)
+with traits
+    ```
+    class MessageHandler implements Handler1, Handler2, Handler3 {}
+    ```
+    ```
+    trait Handler1 {
+        def handle(String message) {
+            if (message.contains("Handler1")) {
+                return "Handler1"
+            }
+            return super.handle(message)
+        }
+    }
+    trait Handler2 {
+        def handle(String message) {
+            if (message.contains("Handler2")) {
+                return "Handler2"
+            }
+            return super.handle(message)
+        }
+    }
+    trait Handler3 {
+        def handle(String message) {
+            if (message.contains("Handler3")) {
+                return "Handler3"
+            }
+            return super.handle(message)
+        }
+    }
+    ```
+    and tests:
+    ```
+    given:
+    def handler = new MessageHandler()
+    
+    expect:
+    handler.handle("message for Handler1") == "Handler1"
+    handler.handle("message for Handler2") == "Handler2"
+    handler.handle("message for Handler3") == "Handler3"
+    ```
 * `super`:
     * if the class implements another trait, the call 
     delegates to the next trait in the chain
