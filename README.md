@@ -118,9 +118,11 @@ class MyDevice implements Communicating {} // forgot to extend Device
 ```
 error:
 `class 'MyDevice' implements trait 'Communicating' but does not extend self type class 'Device'`
-* prefix and postfix operations are not allowed if they update a field of the trait
 
 ## inheritance
 * traits may implement interfaces
 * traits may extend another trait (`extends` keyword)
 * traits may extend multiple traits (`implements` keyword)
+
+## additional info
+* prefix and postfix operations are not allowed if they update a field of the trait
