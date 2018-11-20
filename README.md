@@ -80,6 +80,21 @@ which method to call using the `Trait.super.foo` syntax
     the name of the trait is `Foo` and the name of the field 
     is `bar`, in the implementing class, the public field will 
     appear as: `String my_package_Foo__bar`
+        ```
+        trait TraitWithField {
+            int id = 5
+        }
+        ```
+        ```
+        class C implements TraitWithField {
+        }
+        ```
+        and test:
+        ```
+        expect:
+        new C().trait_field_TraitWithField__id == 5
+        new C().id == 5
+        ```
 
 * fields from traits are shadowed:
     ```
