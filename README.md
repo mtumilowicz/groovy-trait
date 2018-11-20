@@ -337,22 +337,22 @@ make this contract explicit we use `@SelfType`:
     that implements this trait must inherit or implement
     * throw a compile time error if those type 
     constraints are not satisfied
-
-```
-@SelfType(Device)
-@CompileStatic
-trait Communicating {
-    void sendMessage(Device to, String message) {
-        SecurityService.check(this)
-        CommunicationService.sendMessage(id, to.id, message)
+    
+    ```
+    @SelfType(Device)
+    @CompileStatic
+    trait Communicating {
+        void sendMessage(Device to, String message) {
+            SecurityService.check(this)
+            CommunicationService.sendMessage(id, to.id, message)
+        }
     }
-}
-```
-```
-class MyDevice implements Communicating {} // forgot to extend Device
-```
-error:
-`class 'MyDevice' implements trait 'Communicating' but does not extend self type class 'Device'`
+    ```
+    ```
+    class MyDevice implements Communicating {} // forgot to extend Device
+    ```
+    then compile time error:
+    `class 'MyDevice' implements trait 'Communicating' but does not extend self type class 'Device'`
 
 ## inheritance
 * traits may implement interfaces
