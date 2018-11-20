@@ -20,22 +20,24 @@ the implements keyword:
 class Penguin implements Swimmer {
 }
 ```
+
 # details
+
 ## method
-* methods declared in traits could be:
-    * public and private methods (neither protected nor package 
-    private scopes are supported)
-    * abstract
+* methods declared in traits:
+    * could be public and private methods (neither protected 
+    nor package private scopes are supported)
+    * could be abstract
     * cannot be final (you might consider creating a base 
-    class which implements the desired trait(s) if you want 
-    trait implementation methods that can’t be overridden)
-    * it is possible to override them in the implementing class
+    class with final implementation of the desired trait(s))
+    * could be overridden in the implementing class
+    * could be MOP methods like `methodMissing` 
+    or `propertyMissing`
+    
 * if we have a class implementing a trait, implementations 
 are woven directly into the class (there is no base class)
-* could implement MOP methods like `methodMissing` 
-or `propertyMissing`
-*  If some trait defines a method with the same signature as a method in another trait
-last declared trait in the implements clause wins.
+* if some trait defines a method with the same signature as a method in another trait
+last declared trait in the implements clause wins
 * you can explicitly choose which method to call using the Trait.super.foo syntax
     ```
     class C implements A,B {
