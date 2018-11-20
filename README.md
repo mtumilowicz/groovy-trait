@@ -174,15 +174,68 @@ operation is not the same instance. It is guaranteed
 that the coerced object will implement both the trait 
 and the interfaces that the original object implements, 
 but the result will not be an instance of the original 
-class. (EXAMPLE!)
+class.
+    * `interface I1`
+    * `trait RuntimeTrait1`
+    * `trait RuntimeTrait2`
+    * `class C implements I1`
+    and tests:
+    ```
+    given:
+    def c = new C()
+    
+    when:
+    def newC = c as RuntimeTrait1
+    
+    then:
+    newC instanceof I1
+    newC instanceof RuntimeTrait1
+    !(newC instanceof C)    
+    ```
 
 * when you want to implement several traits at once, 
 you can use the `withTraits` method instead of the 
-`as` keyword (EXAMPLE!)
+`as` keyword
+    ```
+    given:
+    def c = new C()
+    
+    when:
+    def newC = c.withTraits RuntimeTrait1, RuntimeTrait2
+    
+    then:
+    newC instanceof RuntimeTrait1
+    newC instanceof RuntimeTrait2
+    ```
 
 *  if you use runtime traits, the methods from the 
 trait are always preferred to those of the proxied 
-object (EXAMPLE!)
+object
+    ```
+    class C {
+        def get() {
+            "C"
+        }
+    }
+    ```
+    ```
+    trait RuntimeTrait1 {
+        def get() {
+            "RuntimeTrait1"
+        }
+    }
+    ```
+    and test
+    ```
+    given:
+    def c = new C()
+    
+    when:
+    def newC = c as RuntimeTrait1
+    
+    then:
+    newC.get() == "RuntimeTrait1"
+    ```
 
 ## chains of responsibility
 * it is possible to easily compose chains of responsibility 
