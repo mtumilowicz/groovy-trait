@@ -289,8 +289,38 @@ with traits
 ## SAM
 * SAM (Single Abstract Method) type coercion for traits 
 with single abstract method 
-
-(EXAMPLE - WHAT IF NOT ABSTRACT BUT SINGLE)
+    * single abstract method
+        ```
+        trait SingleAbstractMethodTrait {
+            def other() {
+            }
+            abstract def getName()
+        }
+        ```
+        and test:
+        ```
+        when:
+        SingleAbstractMethodTrait t = { "name" }
+        
+        then:
+        t.getName() == "name"
+        ```
+    * single NOT abstract method - `GroovyCastException`
+        ```
+        trait SingleNotAbstractMethodTrait {
+            def getName() {
+                "name"
+            }
+        }
+        ```
+        and test
+        ```
+        when:
+        SingleNotAbstractMethodTrait a = { "A" }
+        
+        then:
+        thrown(GroovyCastException)
+        ```
 
 # differences with Java 8 default methods
 * if a class does not provide the implementation - the implementation 
