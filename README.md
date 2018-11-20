@@ -71,7 +71,7 @@ properties, rather than the type of the object itself.
 Traits can call any dynamic code, like a normal Groovy class
 (you can, in the body of a method, call methods which are 
 supposed to exist in an implementing class, without having 
-to explicitly declare them in an interface)
+to explicitly declare them in an interface) (EXAMPLE!)
 
 ## implementing traits dynamically
 Groovy supports implementing traits dynamically at 
@@ -101,6 +101,10 @@ class. (EXAMPLE!)
 you can use the `withTraits` method instead of the 
 `as` keyword (EXAMPLE!)
 
+*  if you use runtime traits, the methods from the 
+trait are always preferred to those of the proxied 
+object (EXAMPLE!)
+
 ## chains of responsibility
 * it is possible to easily compose chains of responsibility 
 with traits (EXAMPLE!)
@@ -118,17 +122,20 @@ with single abstract method
 (EXAMPLE - WHAT IF NOT ABSTRACT BUT SINGLE)
 
 # differences with Java 8 default methods
-* if a class does not provide the implementation - the implementation from the trait is always used if the class declares the trait in its interface list
-. This feature is in particular useful when you don’t have access to the super class source code.
-*  if you use runtime traits, the methods from the trait are always preferred to those of the proxied object
+* if a class does not provide the implementation - the implementation 
+from the trait is always used if the class declares the trait in its 
+interface list. This feature is in particular useful when you don’t 
+have access to the super class source code.
 
 # meaning of this
-@Self Type
 * `this` represents the implementing instance
-Sometimes you will want to write a trait that can only be applied to some type.
-In order to make this contract explicit we use @SelfType
-* let you declare the types that a class that implements this trait must inherit or implement
-* throw a compile time error if those type constraints are not satisfied
+* Sometimes you will want to write a trait that 
+can only be applied to some type. In order to 
+make this contract explicit we use `@SelfType`:
+    * it let you declare the types that a class 
+    that implements this trait must inherit or implement
+    * throw a compile time error if those type 
+    constraints are not satisfied
 
 ```
 @SelfType(Device)
