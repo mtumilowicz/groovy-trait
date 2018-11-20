@@ -1,0 +1,7 @@
+package trait.field
+
+/**
+ * Created by mtumilowicz on 2018-11-20.
+ */
+class C implements TraitWithField {
+}
