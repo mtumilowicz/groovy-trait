@@ -5,7 +5,7 @@ import spock.lang.Specification
 /**
  * Created by mtumilowicz on 2018-11-20.
  */
-class CTest extends Specification {
+class RuntimeTraitTypeTest extends Specification {
     def "runtime trait - type"() {
         given:
         def c = new C()

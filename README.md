@@ -23,6 +23,8 @@ class Penguin implements Swimmer {
 }
 ```
 
+**Example**: package `birds`, tests: `TraitTest`
+
 # details
 
 ## method
@@ -71,7 +73,9 @@ which method to call using the `Trait.super.foo` syntax
     new C().getFromT1() == "T1"
     new C().getFromT2() == "T2"
     ```
-    
+
+**Example**: package `conflict`, tests: `CustomClassTest`
+
 ## fields
 * fields defined in traits:
     * could be final
@@ -123,6 +127,8 @@ which method to call using the `Trait.super.foo` syntax
     classWithField.id() == 1
     ```
 
+**Example**: package `field`, tests: `TraitFieldTest`, `ShadowingFieldTest`
+
 ## duck typing
 _Reference_: https://en.wikipedia.org/wiki/Duck_typing
 
@@ -153,6 +159,8 @@ expect:
 new Named(name: "name").name == "name"
 new Named(name: "name").introduce() == "hi name"
 ```
+
+**Example**: package `ducktyping`, tests: `DuckTypingTest`
 
 ## implementing traits dynamically
 * Groovy supports implementing traits dynamically at 
@@ -240,6 +248,8 @@ object
     newC.get() == "RuntimeTrait1"
     ```
 
+**Example**: package `runtime`, tests: `RuntimeTraitTypeTest`, `RuntimeTraitMethodPreferenceTest`
+
 ## chains of responsibility
 * it is possible to easily compose chains of responsibility 
 with traits
@@ -289,6 +299,8 @@ with traits
     refers to the super class of the implementing 
     class (`this`)
 
+**Example**: package `chain`, tests: `MessageHandlerTest`
+
 ## SAM
 * SAM (Single Abstract Method) type coercion for traits 
 with single abstract method 
@@ -324,6 +336,8 @@ with single abstract method
         then:
         thrown(GroovyCastException)
         ```
+
+**Example**: package `sam`, tests: `SingleAbstractMethodTraitTest`, `SingleNotAbstractMethodTraitTest`
 
 # differences with Java 8 default methods
 * if a class does not provide the implementation - the implementation 
