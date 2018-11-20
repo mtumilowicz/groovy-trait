@@ -363,3 +363,4 @@ make this contract explicit we use `@SelfType`:
 
 ## additional info
 * prefix and postfix operations are not allowed if they update a field of the trait
+* static member support is work in progress and still experimental
