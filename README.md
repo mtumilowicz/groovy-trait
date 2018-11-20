@@ -95,3 +95,27 @@ When coercing an object to a trait, the result of the operation is not the same 
 * if a class does not provide the implementation - the implementation from the trait is always used if the class declares the trait in its interface list
 . This feature is in particular useful when you don’t have access to the super class source code.
 *  if you use runtime traits, the methods from the trait are always preferred to those of the proxied object
+
+@Self Type
+Sometimes you will want to write a trait that can only be applied to some type.
+In order to make this contract explicit we use @SelfType
+* let you declare the types that a class that implements this trait must inherit or implement
+* throw a compile time error if those type constraints are not satisfied
+
+```
+@SelfType(Device)
+@CompileStatic
+trait Communicating {
+    void sendMessage(Device to, String message) {
+        SecurityService.check(this)
+        CommunicationService.sendMessage(id, to.id, message)
+    }
+}
+```
+```
+class MyDevice implements Communicating {} // forgot to extend Device
+```
+error:
+`class 'MyDevice' implements trait 'Communicating' but does not extend self type class 'Device'`
+* prefix and postfix operations are not allowed if they update a field of the trait
+
