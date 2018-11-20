@@ -132,7 +132,25 @@ properties, rather than the type of the object itself.
 Traits can call any dynamic code, like a normal Groovy class
 (you can, in the body of a method, call methods which are 
 supposed to exist in an implementing class, without having 
-to explicitly declare them in an interface) (EXAMPLE!)
+to explicitly declare them in an interface).
+```
+trait DuckTypingTrait {
+    def introduce() {
+        "hi ${getName()}"
+    }
+}
+```
+```
+class Named implements DuckTypingTrait {
+    String name
+}
+```
+and test:
+```
+expect:
+new Named(name: "name").name == "name"
+new Named(name: "name").introduce() == "hi name"
+```
 
 ## implementing traits dynamically
 Groovy supports implementing traits dynamically at 
