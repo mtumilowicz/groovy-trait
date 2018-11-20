@@ -76,7 +76,7 @@ which method to call using the `Trait.super.foo` syntax
     * could have all access levels
     * in order to avoid the diamond problem, field names are 
     remapped in the implementing class - if the type of the 
-    field is String, the name of the package is `my.package`, 
+    field is `String`, the name of the package is `my.package`, 
     the name of the trait is `Foo` and the name of the field 
     is `bar`, in the implementing class, the public field will 
     appear as: `String my_package_Foo__bar`
@@ -153,21 +153,21 @@ new Named(name: "name").introduce() == "hi name"
 ```
 
 ## implementing traits dynamically
-Groovy supports implementing traits dynamically at 
+* Groovy supports implementing traits dynamically at 
 runtime
-```
-trait Extra {
-    String extra() { "I'm an extra method" }            
-}
-class Something {                                       
-    String doSomething() { 'Something' }                
-}
-```
-```
-def s = new Something() as Extra
-s.extra()
-s.doSomething()
-```
+    ```
+    trait Extra {
+        String extra() { "I'm an extra method" }            
+    }
+    class Something {                                       
+        String doSomething() { 'Something' }                
+    }
+    ```
+    ```
+    def s = new Something() as Extra
+    s.extra()
+    s.doSomething()
+    ```
 
 * When coercing an object to a trait, the result of the 
 operation is not the same instance. It is guaranteed 
@@ -175,10 +175,11 @@ that the coerced object will implement both the trait
 and the interfaces that the original object implements, 
 but the result will not be an instance of the original 
 class.
-    * `interface I1`
-    * `trait RuntimeTrait1`
-    * `trait RuntimeTrait2`
-    * `class C implements I1`
+    * `interface I1 {}`
+    * `trait RuntimeTrait1 {}`
+    * `trait RuntimeTrait2 {}`
+    * `class C implements I1 {}`
+    
     and tests:
     ```
     given:
@@ -352,6 +353,7 @@ make this contract explicit we use `@SelfType`:
     class MyDevice implements Communicating {} // forgot to extend Device
     ```
     then compile time error:
+    
     `class 'MyDevice' implements trait 'Communicating' but does not extend self type class 'Device'`
 
 ## inheritance
