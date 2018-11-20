@@ -41,12 +41,35 @@ a method in another trait - last declared trait in the
 implements clause wins, but you can also explicitly choose 
 which method to call using the `Trait.super.foo` syntax
     ```
-    class C implements A,B {
-        String exec() { A.super.exec() }    
+    trait T1 {
+        def get() {
+            "T1"
+        }
     }
-    def c = new C()
-    assert c.exec() == 'A'  
+    trait T2 {
+        def get() {
+            "T2"
+        }
+    }
     ```
+    ```
+    class C implements T1, T2 {
+        def getFromT1() {
+            T1.super.get()
+        }
+    
+        def getFromT2() {
+            T2.super.get()
+        }
+    }
+    ```
+    and tests:
+    ```
+    expect:
+    new C().getFromT1() == "T1"
+    new C().getFromT2() == "T2"
+    ```
+    
 ## fields
 * fields defined in traits:
     * could be final
@@ -58,7 +81,30 @@ which method to call using the `Trait.super.foo` syntax
     is `bar`, in the implementing class, the public field will 
     appear as: `String my_package_Foo__bar`
 
-* fields from traits are shadowed (EXAMPLE!)
+* fields from traits are shadowed:
+    ```
+    trait TraitWithField {
+        int id = 1
+        
+        def id(){
+            id
+        }
+    }
+    ```
+    ```
+    class ClassWithField implements TraitWithField {
+        int id = 5
+    }
+    ```
+    and test:
+    ```
+    given:
+    def classWithField = new ClassWithField()
+    
+    expect:
+    classWithField.id == 5
+    classWithField.id() == 1
+    ```
 
 ## duck typing
 _Reference_: https://en.wikipedia.org/wiki/Duck_typing
