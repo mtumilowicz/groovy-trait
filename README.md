@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/mtumilowicz/groovy-trait.svg?branch=master)](https://travis-ci.com/mtumilowicz/groovy-trait)
+
 # groovy-trait
 Overview of groovy trait.
 
