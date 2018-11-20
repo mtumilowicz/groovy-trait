@@ -36,9 +36,10 @@ class Penguin implements Swimmer {
     
 * if we have a class implementing a trait, implementations 
 are woven directly into the class (there is no base class)
-* if some trait defines a method with the same signature as a method in another trait
-last declared trait in the implements clause wins
-* you can explicitly choose which method to call using the Trait.super.foo syntax
+* if some trait defines a method with the same signature as 
+a method in another trait - last declared trait in the 
+implements clause wins, but you can also explicitly choose 
+which method to call using the `Trait.super.foo` syntax
     ```
     class C implements A,B {
         String exec() { A.super.exec() }    
@@ -47,24 +48,33 @@ last declared trait in the implements clause wins
     assert c.exec() == 'A'  
     ```
 ## fields
-* trait may define properties
-    * final fields
-    * all access levels
-    *  in order to avoid the diamond problem, field names 
-    are remapped in the implementing class:
-    example:
-    if the type of the field is String, the name of the package is my.package, the name of the trait is Foo and the name of the field is bar, in the implementing class, the public field will appear as:
-    
-    `String my_package_Foo__bar`
-    * fields from traits are shadowed
+* fields defined in traits:
+    * could be final
+    * could have all access levels
+    * in order to avoid the diamond problem, field names are 
+    remapped in the implementing class - if the type of the 
+    field is String, the name of the package is `my.package`, 
+    the name of the trait is `Foo` and the name of the field 
+    is `bar`, in the implementing class, the public field will 
+    appear as: `String my_package_Foo__bar`
+
+* fields from traits are shadowed (EXAMPLE!)
 
 ## duck typing
-* duck typing: Traits can call any dynamic code, like a normal Groovy class
-(you can, in the body of a method, call methods which are supposed to exist in an implementing class, without having to explicitly declare them in an interface
-)
+_Reference_: https://en.wikipedia.org/wiki/Duck_typing
+
+With normal typing, suitability is determined by an 
+object's type. In **duck typing**, an object's suitability 
+is determined by the presence of certain methods and 
+properties, rather than the type of the object itself.
+
+Traits can call any dynamic code, like a normal Groovy class
+(you can, in the body of a method, call methods which are 
+supposed to exist in an implementing class, without having 
+to explicitly declare them in an interface)
 
 ## implementing traits dynamically
-* groovy also supports implementing traits dynamically at 
+Groovy supports implementing traits dynamically at 
 runtime
 ```
 trait Extra {
@@ -79,18 +89,33 @@ def s = new Something() as Extra
 s.extra()
 s.doSomething()
 ```
-When coercing an object to a trait, the result of the operation is not the same instance. It is guaranteed that the coerced object will implement both the trait and the interfaces that the original object implements, but the result will not be an instance of the original class.
 
-* when you want to implement several traits at once, you can use the withTraits method instead of the as keyword
+* When coercing an object to a trait, the result of the 
+operation is not the same instance. It is guaranteed 
+that the coerced object will implement both the trait 
+and the interfaces that the original object implements, 
+but the result will not be an instance of the original 
+class. (EXAMPLE!)
+
+* when you want to implement several traits at once, 
+you can use the `withTraits` method instead of the 
+`as` keyword (EXAMPLE!)
 
 ## chains of responsibility
-* it is possible to easily compose chains of responsibility with traits
+* it is possible to easily compose chains of responsibility 
+with traits (EXAMPLE!)
 * `super`:
-    * if the class implements another trait, the call delegates to the next trait in the chain
-    * if there isn’t any trait left in the chain, super refers to the super class of the implementing class (this)
+    * if the class implements another trait, the call 
+    delegates to the next trait in the chain
+    * if there isn’t any trait left in the chain, super 
+    refers to the super class of the implementing 
+    class (`this`)
 
 ## SAM
-* SAM (Single Abstract Method) type coercion for traits with single abstract method (WHAT IF NOT ABSTRACT BUT SINGLE)
+* SAM (Single Abstract Method) type coercion for traits 
+with single abstract method 
+
+(EXAMPLE - WHAT IF NOT ABSTRACT BUT SINGLE)
 
 # differences with Java 8 default methods
 * if a class does not provide the implementation - the implementation from the trait is always used if the class declares the trait in its interface list
