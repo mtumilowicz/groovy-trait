@@ -50,6 +50,7 @@ implementations and state
         }
         ```
     * it gets more sense when fields (state) come to play
+* it could be shipped on a class level and an instance level as well
 
 # details
 
@@ -199,8 +200,9 @@ runtime
         String doSomething() { 'Something' }                
     }
     ```
+    single trait at runtime: `obj as trait1`, multiple traits at runtime: `obj.withTraits trait1, trait2, trait3`
     ```
-    def s = new Something() as Extra
+    def s = new Something() as Extra // when you need to bind extra behaviour rather to the instance than the class
     s.extra()
     s.doSomething()
     ```
@@ -366,6 +368,22 @@ with single abstract method
 **Example**: package `sam`, tests: `SingleAbstractMethodTraitTest`, `SingleNotAbstractMethodTraitTest`
 
 # differences with Java 8 default methods
+* note that
+    ```
+    trait X {
+        String a
+  
+        int b() {}
+    }
+    ```
+    could be seen as Java's interface
+    ```
+    interface X {
+        String getA();
+        int b() {};
+    }
+    ```
+    
 * if a class does not provide the implementation - the implementation 
 from the trait is always used if the class declares the trait in its 
 interface list. This feature is in particular useful when you don’t 
