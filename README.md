@@ -23,6 +23,7 @@ implementations and state
         class Penguin implements Swimmer {
         }
         ```
+        * **example**: package `birds`, tests: `TraitTest`
 * **traits** can be seen as a delegation pattern build into language
     * explicit delegation
         ```
@@ -48,8 +49,7 @@ implementations and state
         class Y implements X {
         }
         ```
-    * it gets more sense when fields come to play
-**Example**: package `birds`, tests: `TraitTest`
+    * it gets more sense when fields (state) come to play
 
 # details
 
