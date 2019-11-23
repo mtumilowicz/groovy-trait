@@ -7,23 +7,48 @@ _Reference_: http://docs.groovy-lang.org/next/html/documentation/core-traits.htm
 _Reference_: [Using Traits, Mixins and Monads in JVM Languages](https://www.youtube.com/watch?v=NsZoFno8Mfk)
 
 # preface
-**Traits** can be seen as interfaces carrying both default 
-implementations and state. A trait is defined using the 
-trait keyword:
-```
-trait Swimmer {
-    def swim() {
-        "swimming"
-    }
-}
-```
-Then it can be used like a normal interface using 
-the implements keyword:
-```
-class Penguin implements Swimmer {
-}
-```
-
+* **traits** can be seen as interfaces carrying both default 
+implementations and state
+    * trait is defined using the trait keyword:
+        ```
+        trait Swimmer {
+            def swim() {
+                "swimming"
+            }
+        }
+        ```
+        then it can be used like a normal interface using 
+        the implements keyword:
+        ```
+        class Penguin implements Swimmer {
+        }
+        ```
+* **traits** can be seen as a delegation pattern build into language
+    * explicit delegation
+        ```
+        interface X { 
+            void a()
+        }
+        class XImpl implements X {
+            public void a() {} // suppose this method is used in many classes, we don't want copy-paste so we abstract it
+        }
+        class Y implements X {
+            XImpl x
+      
+            public void a() {
+                x.a()
+            }
+        }
+        ```
+    * becomes traits
+        ```
+        trait X { 
+            void a() {}
+        }
+        class Y implements X {
+        }
+        ```
+    * it gets more sense when fields come to play
 **Example**: package `birds`, tests: `TraitTest`
 
 # details
