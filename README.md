@@ -3,7 +3,8 @@
 # groovy-trait
 Overview of groovy trait.
 
-_Reference_: http://docs.groovy-lang.org/next/html/documentation/core-traits.html
+_Reference_: http://docs.groovy-lang.org/next/html/documentation/core-traits.html  
+_Reference_: [Using Traits, Mixins and Monads in JVM Languages](https://www.youtube.com/watch?v=NsZoFno8Mfk)
 
 # preface
 **Traits** can be seen as interfaces carrying both default 
