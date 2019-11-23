@@ -41,7 +41,7 @@ implementations and state
             }
         }
         ```
-    * becomes traits
+    * becomes traits (in fact - compiler changes it to something very similar as above `explicit delegation`)
         ```
         trait X { 
             void a() {}
