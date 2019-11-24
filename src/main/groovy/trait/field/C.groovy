@@ -1,4 +1,6 @@
 package trait.field
 
-class C implements TraitWithField {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+class C implements TraitWithField {}

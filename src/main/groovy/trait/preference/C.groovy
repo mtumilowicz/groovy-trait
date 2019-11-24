@@ -1,10 +1,10 @@
-package trait.multiinheritance
+package trait.preference
 
 import groovy.transform.PackageScope
 
 @PackageScope
-trait T1 {
+class C {
     def get() {
-        "T1"
+        "C"
     }
 }

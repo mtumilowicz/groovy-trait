@@ -1,4 +1,6 @@
 package trait.runtime
 
-class C implements I1 {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+class C implements I1 {}

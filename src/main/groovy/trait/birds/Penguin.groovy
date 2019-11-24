@@ -1,4 +1,6 @@
 package trait.birds
 
-class Penguin implements Swimmer {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+class Penguin implements Swimmer {}

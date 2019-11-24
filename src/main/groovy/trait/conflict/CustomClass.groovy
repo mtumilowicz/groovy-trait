@@ -1,4 +1,6 @@
 package trait.conflict
 
-class CustomClass extends SuperClass implements Trait1 {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+class CustomClass extends SuperClass implements Trait1 {}

@@ -1,7 +1,10 @@
 package trait.sam
 
+import groovy.transform.PackageScope
+
+@PackageScope
 trait SingleAbstractMethodTrait {
-    def other() {
-    }
+    def other() {}
+
     abstract def getName()
 }

@@ -1,10 +1,10 @@
-package trait.multiinheritance
+package trait.preference
 
 import groovy.transform.PackageScope
 
 @PackageScope
-trait T1 {
+trait RuntimeTrait1 {
     def get() {
-        "T1"
+        "RuntimeTrait1"
     }
 }

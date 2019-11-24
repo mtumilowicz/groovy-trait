@@ -1,5 +1,3 @@
 package trait.runtime
 
-interface I1 {
-
-}
+interface I1 {}

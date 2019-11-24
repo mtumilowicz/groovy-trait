@@ -1,4 +1,4 @@
-package trait.runtime.preference
+package trait.preference
 
 import spock.lang.Specification 
 

@@ -1,4 +1,6 @@
 package trait.runtime
 
-trait RuntimeTrait1 {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+trait RuntimeTrait1 {}

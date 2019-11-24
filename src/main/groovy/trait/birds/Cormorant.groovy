@@ -1,4 +1,6 @@
 package trait.birds
 
-class Cormorant implements Flyer, Swimmer {
-}
+import groovy.transform.PackageScope
+
+@PackageScope
+class Cormorant implements Flyer, Swimmer {}
