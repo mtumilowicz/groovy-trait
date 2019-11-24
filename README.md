@@ -276,7 +276,7 @@ object
     newC.get() == "RuntimeTrait1"
     ```
 
-**Example**: package `runtime`, tests: `RuntimeTraitTypeTest`, `RuntimeTraitMethodPreferenceTest`
+**example**: `runtime.RuntimeTraitTypeTest`, `preference.RuntimeTraitMethodPreferenceTest`
 
 ## chains of responsibility
 * it is possible to easily compose chains of responsibility 
