@@ -367,7 +367,7 @@ with single abstract method
 
 **Example**: package `sam`, tests: `SingleAbstractMethodTraitTest`, `SingleNotAbstractMethodTraitTest`
 
-# differences with Java 8 default methods
+# vs java 8
 * note that
     ```
     trait X {
@@ -383,11 +383,13 @@ with single abstract method
         int b() {};
     }
     ```
-    
+* but interfaces in java do not have the concept of chaining
+* interfaces cannot be attached per instance 
 * if a class does not provide the implementation - the implementation 
 from the trait is always used if the class declares the trait in its 
-interface list. This feature is in particular useful when you don’t 
-have access to the super class source code.
+interface list
+    * feature particular useful when you don’t have access to the super class source code
+    * example in package `trait.superclass`
 
 # meaning of this
 * `this` represents the implementing instance
