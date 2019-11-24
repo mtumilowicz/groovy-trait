@@ -1,9 +1,7 @@
 package trait.runtime.preference
 
 import spock.lang.Specification 
-/**
- * Created by mtumilowicz on 2018-11-20.
- */
+
 class RuntimeTraitMethodPreferenceTest extends Specification {
     def "runtime trait preference"() {
         given:

@@ -1,7 +1,5 @@
-package trait.runtime.preference 
-/**
- * Created by mtumilowicz on 2018-11-20.
- */
+package trait.runtime.preference
+
 class C {
     def get() {
         "C"

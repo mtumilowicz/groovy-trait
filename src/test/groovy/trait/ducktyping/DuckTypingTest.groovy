@@ -2,9 +2,6 @@ package trait.ducktyping
 
 import spock.lang.Specification
 
-/**
- * Created by mtumilowicz on 2018-11-20.
- */
 class DuckTypingTest extends Specification {
     def "test getName"() {
         expect:

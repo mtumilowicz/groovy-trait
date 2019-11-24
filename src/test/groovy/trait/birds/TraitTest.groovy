@@ -6,9 +6,6 @@ import trait.birds.Flyer
 import trait.birds.Penguin
 import trait.birds.Swimmer
 
-/**
- * Created by mtumilowicz on 2018-11-18.
- */
 class TraitTest extends Specification {
     
     def "cormorant is flyer"() {
