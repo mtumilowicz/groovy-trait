@@ -101,7 +101,7 @@ which method to call using the `Trait.super.foo` syntax
     new C().getFromT2() == "T2"
     ```
 
-**Example**: package `conflict`, tests: `CustomClassTest`
+**example**: package `superclass`, tests: `CustomClassTest`
 
 ## fields
 * fields defined in traits:
@@ -154,7 +154,7 @@ which method to call using the `Trait.super.foo` syntax
     classWithField.id() == 1
     ```
 
-**Example**: package `field`, tests: `TraitFieldTest`, `ShadowingFieldTest`
+**example**: package `field`, tests: `TraitFieldTest`, `ShadowingFieldTest`
 
 ## duck typing
 _Reference_: https://en.wikipedia.org/wiki/Duck_typing
@@ -187,7 +187,7 @@ new Named(name: "name").name == "name"
 new Named(name: "name").introduce() == "hi name"
 ```
 
-**Example**: package `ducktyping`, tests: `DuckTypingTest`
+**example**: package `ducktyping`, tests: `DuckTypingTest`
 
 ## implementing traits dynamically
 * Groovy supports implementing traits dynamically at 
@@ -327,7 +327,7 @@ with traits
     refers to the super class of the implementing 
     class (`this`)
 
-**Example**: package `chain`, tests: `MessageHandlerTest`
+**example**: package `chain`, tests: `MessageHandlerTest`
 
 ## SAM
 * SAM (Single Abstract Method) type coercion for traits 
@@ -365,7 +365,7 @@ with single abstract method
         thrown(GroovyCastException)
         ```
 
-**Example**: package `sam`, tests: `SingleAbstractMethodTraitTest`, `SingleNotAbstractMethodTraitTest`
+**example**: package `sam`, tests: `SingleAbstractMethodTraitTest`, `SingleNotAbstractMethodTraitTest`
 
 # vs java 8
 * note that
