@@ -1,10 +1,10 @@
-package trait.conflict
+package trait.superclass
 
 import groovy.transform.PackageScope
 
 @PackageScope
-trait Trait1 {
+class SuperClass {
     String get() {
-        "Trait1"
+        "SuperClass"
     }
 }

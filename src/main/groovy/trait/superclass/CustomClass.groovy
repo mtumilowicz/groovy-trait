@@ -1,4 +1,4 @@
-package trait.conflict
+package trait.superclass
 
 import groovy.transform.PackageScope
 
